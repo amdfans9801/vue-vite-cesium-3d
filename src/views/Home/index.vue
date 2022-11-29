@@ -1,13 +1,7 @@
 <template>
-    <div id="home">
-        
-    </div>
+	<div id="home"></div>
 </template>
 
-<script setup>
+<script setup></script>
 
-</script>
-
-<style>
-
-</style>
+<style></style>

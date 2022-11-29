@@ -1,6 +1,6 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 
-const routers = [
+const routes = [
     {
         path: '/',
         redirect: '/home',
@@ -13,7 +13,7 @@ const routers = [
 
 const router = createRouter({
     history: createWebHashHistory(),
-    routers
+    routes
 });
 
 export default router;

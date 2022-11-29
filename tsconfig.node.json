@@ -1,11 +1,9 @@
 {
-	"compilerOptions": {
-		"composite": true,
-		"module": "esnext",
-		"moduleResolution": "node",
-		"types": ["node"], //安装@types/node  npm install @types/node --save-dev 解决require引用报错 __dirname dir等常量
-		"suppressImplicitAnyIndexErrors": true, //解决字符串做下标报错
-		"allowSyntheticDefaultImports": true //解决独立包引入下划线
-	},
-	"include": ["vite.config.ts"]
+  "compilerOptions": {
+    "composite": true,
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "allowSyntheticDefaultImports": true
+  },
+  "include": ["vite.config.ts"]
 }
