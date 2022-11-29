@@ -17,7 +17,7 @@ const app = createApp(App);
 import "./request/permission.js";
 
 // 全局组件及方法挂载
-import "virtual:svg-icons-register";
+// import "virtual:svg-icons-register";
 import utils from "./utils/index.js";
 
 app.use(store);
