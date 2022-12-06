@@ -24,7 +24,7 @@ export function initViewer(containerId = "CesiumMap", mode) {
 			},
 		},
 		imageryProvider: new SingleTileImageryProvider({
-			url: new URL("../../assets/images/cesium/globe.png", import.meta.url).href,
+			url: new URL("../../../public/img/cesium/globe.png", import.meta.url).href,
 		}),
 		skyAtmosphere: false,
 		selectionIndicator: false,
