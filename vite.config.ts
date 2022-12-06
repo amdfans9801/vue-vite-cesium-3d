@@ -1,6 +1,5 @@
 import { defineConfig, loadEnv } from 'vite';
-import vue from '@vitejs/plugin-vue';
-
+import createVitePlugins from './vite';
 import { resolve } from 'path';
 
 import postcsspxtoviewport from 'postcss-px-to-viewport';
@@ -10,7 +9,7 @@ import autoprefixer from 'autoprefixer';
 export default defineConfig(({ command, mode }) => {
 	const env = loadEnv(mode, process.cwd());
 	return {
-		plugins: [vue()],
+		plugins: createVitePlugins(env, command === 'build'),
 		base: './', //打包相对路径
 		resolve: {
 			// 配置别名

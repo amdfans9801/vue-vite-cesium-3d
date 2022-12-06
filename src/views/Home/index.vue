@@ -1,7 +1,17 @@
 <template>
-	<div id="home"></div>
+	<div id="home">
+		<!-- 地图容器 -->
+		<Map ref="mapContainer" v-show="mapLoadParams.showMap"></Map>
+	</div>
 </template>
 
-<script setup></script>
+<script setup>
+import Map from '../Cesium/index.vue';
+</script>
 
-<style></style>
+<style scoped>
+#home {
+	width: 100%;
+	height: 100%;
+}
+</style>
