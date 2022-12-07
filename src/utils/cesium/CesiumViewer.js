@@ -1,4 +1,5 @@
 import {
+    Ion,
 	Viewer,
 	SingleTileImageryProvider,
 	ScreenSpaceEventType,
@@ -13,6 +14,7 @@ import {
 } from "cesium";
 import "cesium/Build/Cesium/Widgets/widgets.css";
 export function initViewer(containerId = "CesiumMap", mode) {
+    Ion.defaultAccessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIyNThiOTQ5Yi04OTkzLTQzZWUtOTJlMC01OTQxNGU0YzMxZWIiLCJpZCI6NzY2OCwic2NvcGVzIjpbImFzciIsImdjIl0sImlhdCI6MTU1NDE2OTI3Nn0.5Q_q6jBgYzvO_EKF8V8ypFOkwEc92rLSb9weyeTKoBg"
 	let options = {
 		orderIndependentTranslucency: false,
 		contextOptions: {
@@ -78,8 +80,10 @@ export function initViewer(containerId = "CesiumMap", mode) {
 		}
 	}, ScreenSpaceEventType.LEFT_CLICK);
 	// 图层控制扩展方法
+    
 	layerControl(viewer);
 	// debugView(viewer);
+
 	return viewer;
 }
 /**

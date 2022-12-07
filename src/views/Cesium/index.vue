@@ -8,14 +8,18 @@
 </template>
 
 <script setup>
-import { initViewer } from '@/utils/cesium/CesiumViewer';
+import { initViewer } from '@/utils/cesium/CesiumViewer.js';
 import Compass from './Compass/index.vue';
+import { getGisBlue } from '@/utils/cesium/loadProvider.js';
 
 const viewer = ref(null);
 
 onMounted(() => {
 	viewer.value = initViewer('CesiumMap');
-
+	let blueblacklayer = getGisBlue();
+	let layerobj = viewer.value.imageryLayers.addImageryProvider(blueblacklayer);
+    viewer.value.imageryLayers.lowerToBottom(layerobj);
+	viewer.value.layers.push(layerobj);
 });
 
 defineExpose({
