@@ -159,7 +159,7 @@ export function getGisImage(show) {
  * @Description: arcgis 蓝黑
  * @Date: 2021-11-07 00:28:50
  */
-export function getGisBlue(show) {
+export function getGisBlue() {
 	let provider = new ArcGisMapServerImageryProvider({
 		url: "http://map.geoq.cn/arcgis/rest/services/ChinaOnlineStreetPurplishBlue/MapServer",
 		tilingScheme: new WebMercatorTilingScheme(),
@@ -167,11 +167,7 @@ export function getGisBlue(show) {
 	provider.readyPromise.then(() => {
 		transformProjection(provider);
 	});
-	return {
-		provider: provider,
-		name: "ESRI蓝黑地图",
-		show: show ?? false,
-	};
+    return provider;
 }
 /**
  * @Author: dongnan

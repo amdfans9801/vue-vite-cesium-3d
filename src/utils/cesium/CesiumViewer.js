@@ -80,10 +80,9 @@ export function initViewer(containerId = "CesiumMap", mode) {
 		}
 	}, ScreenSpaceEventType.LEFT_CLICK);
 	// 图层控制扩展方法
-    
+
 	layerControl(viewer);
 	// debugView(viewer);
-
 	return viewer;
 }
 /**

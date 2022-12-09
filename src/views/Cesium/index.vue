@@ -11,16 +11,40 @@
 import { initViewer } from '@/utils/cesium/CesiumViewer.js';
 import Compass from './Compass/index.vue';
 import { getGisBlue } from '@/utils/cesium/loadProvider.js';
+import { Cartesian3 } from 'cesium';
+import { setRainParticle, setDarkCloudParticle } from './Weather/lib/Weather.js';
 
 const viewer = ref(null);
 
 onMounted(() => {
 	viewer.value = initViewer('CesiumMap');
-	let blueblacklayer = getGisBlue();
-	let layerobj = viewer.value.imageryLayers.addImageryProvider(blueblacklayer);
-    viewer.value.imageryLayers.lowerToBottom(layerobj);
-	viewer.value.layers.push(layerobj);
+	// 加载蓝黑底图
+	window.viewer = viewer.value;
+	addBlueBlackLayer();
+	setRain();
+	window.viewer.camera.flyTo({
+		destination: new Cartesian3.fromDegrees(118.7286257924172, 31.864404015122627, 5000),
+	});
 });
+
+function setRain() {
+	let _position = { position_x: 118.7286257924172, position_y: 31.864404015122627, position_z: 500 };
+	setRainParticle(_position);
+	setDarkCloudParticle(_position);
+}
+
+function addBlueBlackLayer() {
+	viewer.value.layers = [];
+	let blueblacklayer = [getGisBlue()];
+	if (Array.isArray(blueblacklayer) && blueblacklayer.length > 0) {
+		viewer.value.imageryLayers.removeAll();
+		blueblacklayer.some((item) => {
+			let layer = viewer.value.imageryLayers.addImageryProvider(item);
+			viewer.value.imageryLayers.lowerToBottom(layer);
+			viewer.value.layers.push(layer);
+		});
+	}
+}
 
 defineExpose({
 	viewer,
