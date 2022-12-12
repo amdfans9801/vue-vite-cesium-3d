@@ -12,7 +12,7 @@ import { initViewer } from '@/utils/cesium/CesiumViewer.js';
 import Compass from './Compass/index.vue';
 import { getGisBlue } from '@/utils/cesium/loadProvider.js';
 import { Cartesian3 } from 'cesium';
-import { setRainParticle, setDarkCloudParticle } from './Weather/lib/Weather.js';
+import { setRainParticle, setDarkCloudParticle, setLightingParticle } from './Weather/lib/Weather.js';
 
 const viewer = ref(null);
 
@@ -29,8 +29,10 @@ onMounted(() => {
 
 function setRain() {
 	let _position = { position_x: 118.7286257924172, position_y: 31.864404015122627, position_z: 500 };
+	let _position_height0 = { position_x: 118.7286257924172, position_y: 31.864404015122627, position_z: 0 };
 	setRainParticle(_position);
 	setDarkCloudParticle(_position);
+	setLightingParticle(_position_height0);
 }
 
 function addBlueBlackLayer() {
