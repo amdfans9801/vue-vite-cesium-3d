@@ -12,9 +12,5 @@ const isShowMap = ref(true);
 </script>
 
 <style scoped>
-#home {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-}
+@import url('./css/homestyle.css');
 </style>

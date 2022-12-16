@@ -8,7 +8,7 @@ import { Cartesian2, Cartesian3, ParticleSystem, Color, CircleEmitter, BoxEmitte
 
 
 // 添加下雪粒子特效
-function setRainParticle(position){
+function setSnowParticle(position){
 	let _position = Cartesian3.fromDegrees(position.position_x, position.position_y, position.position_z);
     let _degree = {degree_x: 0, degree_y: 180, degree_z: 0};// 粒子发射器的朝向角度
     let _translation = { translation_x: 0, translation_y: 0, translation_z: 0 }// 粒子发射器偏移的位置
@@ -136,5 +136,5 @@ function setLightingParticle(position) {
 }
 
 export {
-    setRainParticle, setDarkCloudParticle, setLightingParticle
+    setSnowParticle, setDarkCloudParticle, setLightingParticle
 }

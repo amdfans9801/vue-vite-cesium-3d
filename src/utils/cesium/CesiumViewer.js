@@ -50,7 +50,8 @@ export function initViewer(containerId = "CesiumMap", mode) {
 	viewer.cesiumWidget.screenSpaceEventHandler.removeInputAction(ScreenSpaceEventType.LEFT_DOUBLE_CLICK);
 	//设置鼠标中键
 	viewer.scene.screenSpaceCameraController.zoomEventTypes = [CameraEventType.WHEEL, CameraEventType.PINCH];
-	viewer.scene.screenSpaceCameraController.tiltEventTypes = [CameraEventType.PINCH, CameraEventType.RIGHT_DRAG];
+	// viewer.scene.screenSpaceCameraController.tiltEventTypes = [CameraEventType.PINCH, CameraEventType.RIGHT_DRAG];
+    viewer.scene.screenSpaceCameraController.tiltEventTypes.push(CameraEventType.RIGHT_DRAG);
 	//开启抗锯齿
 	if (FeatureDetection.supportsImageRenderingPixelated()) {
 		//判断是否支持图像渲染像素化处理

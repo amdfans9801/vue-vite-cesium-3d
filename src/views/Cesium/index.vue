@@ -12,7 +12,7 @@ import { initViewer } from '@/utils/cesium/CesiumViewer.js';
 import Compass from './Compass/index.vue';
 import { getGisBlue } from '@/utils/cesium/loadProvider.js';
 import { Cartesian3 } from 'cesium';
-import { setRainParticle, setDarkCloudParticle, setLightingParticle } from './Weather/lib/Weather.js';
+import { setSnowParticle, setDarkCloudParticle, setLightingParticle } from './Weather/lib/Weather.js';
 
 const viewer = ref(null);
 
@@ -21,16 +21,16 @@ onMounted(() => {
 	// 加载蓝黑底图
 	window.viewer = viewer.value;
 	addBlueBlackLayer();
-	setRain();
+	// setSnow();
 	window.viewer.camera.flyTo({
 		destination: new Cartesian3.fromDegrees(118.7286257924172, 31.864404015122627, 5000),
 	});
 });
 
-function setRain() {
+function setSnow() {
 	let _position = { position_x: 118.7286257924172, position_y: 31.864404015122627, position_z: 500 };
 	let _position_height0 = { position_x: 118.7286257924172, position_y: 31.864404015122627, position_z: 0 };
-	setRainParticle(_position);
+	setSnowParticle(_position);
 	setDarkCloudParticle(_position);
 	setLightingParticle(_position_height0);
 }
