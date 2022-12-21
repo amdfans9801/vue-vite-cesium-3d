@@ -4,6 +4,7 @@ import { resolve } from 'path';
 
 import postcsspxtoviewport from 'postcss-px-to-viewport';
 import autoprefixer from 'autoprefixer';
+import externalGlobals from 'rollup-plugin-external-globals';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode }) => {
@@ -16,11 +17,13 @@ export default defineConfig(({ command, mode }) => {
 			alias: {
 				'@': resolve('src'),
 				'*': resolve(''),
+				globalconfig: resolve('./public/config/globalconfig.js'),
 			},
 		},
 		server: {
-			host: env.VITE_HOST,
-			port: parseFloat(env.VITE_PORT),
+			host: '0.0.0.0',
+			// port: parseFloat(env.VITE_PORT),
+			port: 8848,
 			https: false, //是否启用 https
 			cors: true, //为开发服务器配置 CORS , 默认启用并允许任何源
 			open: true, //服务启动时自动在浏览器中打开应用
@@ -57,12 +60,20 @@ export default defineConfig(({ command, mode }) => {
 		//打包配置
 		build: {
 			target: 'modules', //浏览器兼容性  "esnext"|"modules"
-			outDir: env.VITE_OUTPUT_DIR, //指定输出路径
+			// outDir: env.VITE_OUTPUT_DIR, //指定输出路径
+			outDir: '/dist',
 			assetsDir: 'assets', //生成静态资源的存放路径
 			assetsInlineLimit: 4096, //小于此阈值的导入或引用资源将内联为 base64 编码，以避免额外的 http 请求。设置为 0 可以完全禁用此项
 			cssCodeSplit: true, //启用/禁用 CSS 代码拆分
 			sourcemap: false, //构建后是否生成 source map 文件
-			rollupOptions: {}, //自定义底层的 Rollup 打包配置
+			rollupOptions: {
+				external: ['globalconfig'],
+				plugins: [
+					externalGlobals({
+						globalconfig: 'globalconfig',
+					}),
+				],
+			}, //自定义底层的 Rollup 打包配置
 			commonjsOptions: {}, //@rollup/plugin-commonjs 插件的选项
 			manifest: false, //当设置为 true，构建后将会生成 manifest.json 文件
 			// 设置为 false 可以禁用最小化混淆，或是用来指定使用哪种混淆器 boolean | 'terser' | 'esbuild'

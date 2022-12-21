@@ -12,6 +12,14 @@ const routes = [
     {
         path: '/charts',
         component: () => import('@/views/Charts/index.vue'),
+    },
+    {
+        path: '/map',
+        component: () => import('@/views/Cesium/index.vue'),
+    },
+    {
+        path: '/threejs',
+        component: () => import('@/views/Threejs/index.vue'),
     }
 ];
 
