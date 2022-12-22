@@ -15,3 +15,10 @@ app.use(router);
 app.use(ElementPlus);
 
 app.mount('#app');
+
+let retrunback = document.createElement('div');
+document.getElementById('app')?.appendChild(retrunback);
+retrunback.id = 'gobackhome';
+retrunback.onclick = () => {
+	router.push('/');
+};

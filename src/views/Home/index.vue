@@ -2,7 +2,7 @@
 	<div id="home">
 		<!-- 地图容器 -->
 		<menus></menus>
-		<Map ref="mapContainer" v-show="isShowMap"></Map>
+		<Map ref="mapContainer" v-show="isShowMap" class="mapcontainer"></Map>
 	</div>
 </template>
 

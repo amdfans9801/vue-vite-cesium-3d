@@ -55,6 +55,7 @@ defineExpose({
 
 <style scoped>
 #CesiumContainer {
+	position: absolute;
 	width: 100%;
 	height: 100%;
 }
