@@ -2,15 +2,11 @@
 	<div id="home">
 		<!-- 地图容器 -->
 		<menus></menus>
-		<Map ref="mapContainer" v-show="isShowMap" class="mapcontainer"></Map>
 	</div>
 </template>
 
 <script setup>
-import Map from '../Cesium/index.vue';
 import menus from './menus.vue';
-
-const isShowMap = ref(false);
 </script>
 
 <style scoped>
