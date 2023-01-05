@@ -10,7 +10,7 @@
 </template>
 
 <script setup>
-// import { initchart } from './handler/threedpiechart';
+// import { initchart } from './handler/threedpiecharts';
 onMounted(() => {});
 </script>
 
