@@ -5,12 +5,21 @@ import { resolve } from 'path';
 import postcsspxtoviewport from 'postcss-px-to-viewport';
 import autoprefixer from 'autoprefixer';
 import externalGlobals from 'rollup-plugin-external-globals';
+import optimizer from 'vite-plugin-optimizer';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode }) => {
 	const env = loadEnv(mode, process.cwd());
 	return {
-		plugins: createVitePlugins(env, command === 'build'),
+		plugins: [
+			createVitePlugins(env, command === 'build'),
+			// optimizer({
+			// 	buffer: () => ({
+			// 		find: /^(node:)?buffer$/,
+			// 		code: `const buffer = import.meta.glob('buffer'); export { buffer as default }`,
+			// 	}),
+			// }),
+		],
 		base: './', //打包相对路径
 		resolve: {
 			// 配置别名

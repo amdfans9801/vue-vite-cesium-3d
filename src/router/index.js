@@ -20,6 +20,10 @@ const routes = [
     {
         path: '/threejs',
         component: () => import('@/views/Threejs/index.vue'),
+    },
+    {
+        path: '/uploadfiles',
+        component: () => import('@/views/Cesium/UpLoadMap.vue'),
     }
 ];
 

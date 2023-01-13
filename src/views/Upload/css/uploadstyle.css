@@ -1,0 +1,33 @@
+#uploadcontainer{
+    width: 320px;
+    height: 180px;
+    position: absolute;
+    z-index: 3;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    top: 20px;
+    left: 800px;
+    background-color: #E8EAED;
+}
+
+#selectcontainer{
+    position: absolute;
+    left: 31px;
+    bottom: 5px;
+}
+
+.filepath{
+    width: 200px;
+    border: 1px solid #409EFF;
+    border-radius: 5px;
+}
+
+.selectbutton{
+    margin-left: 5px;
+}
+
+#file{
+    visibility: hidden;
+    height: 0;
+    width: 0;
+}

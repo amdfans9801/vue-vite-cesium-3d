@@ -1,3 +1,8 @@
+// polyfills
+if (typeof (window as any).global === 'undefined') {
+	(window as any).global = window;
+}
+
 import { createApp } from 'vue';
 import './css/style.css';
 import App from './App.vue';
