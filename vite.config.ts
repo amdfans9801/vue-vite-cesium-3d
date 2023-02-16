@@ -27,6 +27,7 @@ export default defineConfig(({ command, mode }) => {
 				'@': resolve('src'),
 				'*': resolve(''),
 				globalconfig: resolve('./public/config/globalconfig.js'),
+				shpjs: resolve('./public/js/shp.min.js'),
 			},
 		},
 		server: {
@@ -76,10 +77,11 @@ export default defineConfig(({ command, mode }) => {
 			cssCodeSplit: true, //启用/禁用 CSS 代码拆分
 			sourcemap: false, //构建后是否生成 source map 文件
 			rollupOptions: {
-				external: ['globalconfig'],
+				external: ['globalconfig', 'shpjs'],
 				plugins: [
 					externalGlobals({
 						globalconfig: 'globalconfig',
+						shpjs: 'shpjs',
 					}),
 				],
 			}, //自定义底层的 Rollup 打包配置

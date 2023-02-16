@@ -30,7 +30,7 @@ function selectedfile() {
 
 function uploadfile() {}
 </script>
-
+<script s></script>
 <style scoped>
 @import url('./css/uploadstyle.css');
 </style>
